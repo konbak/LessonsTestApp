@@ -22,14 +22,9 @@ import app.example.domain.model.Course
 
 @Composable
 fun DetailsScreen(
-    courseId: Int,
     viewModel: DetailsViewModel = hiltViewModel(),
 ) {
     val course by viewModel.selectedCourse.collectAsState()
-
-    LaunchedEffect(courseId) {
-        viewModel.loadCourse(courseId)
-    }
 
     course?.let { selectedCourse ->
         DetailsContent(

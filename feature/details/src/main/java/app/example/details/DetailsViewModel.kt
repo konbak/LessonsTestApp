@@ -1,5 +1,6 @@
 package app.example.details
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.example.domain.model.Course
@@ -13,12 +14,21 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     private val coursesReader: CoursesReader,
     private val coursesStateUpdater: CoursesStateUpdater,
 ): ViewModel() {
 
     private val _selectedCourse = MutableStateFlow<Course?>(null)
     val selectedCourse: StateFlow<Course?> = _selectedCourse
+
+    private val courseId: Int = checkNotNull(savedStateHandle["courseId"]) {
+        "courseId is required"
+    }
+
+    init {
+        loadCourse(courseId)
+    }
 
     fun loadCourse(courseId: Int) {
         viewModelScope.launch {

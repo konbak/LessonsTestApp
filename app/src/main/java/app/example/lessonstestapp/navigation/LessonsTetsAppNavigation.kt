@@ -35,10 +35,8 @@ fun LessonsTestAppNavigation() {
                 type = NavType.IntType
             })
         ) { backStackEntry ->
-            val courseId = backStackEntry.arguments?.getInt("courseId") ?: 0
             val detailsViewModel = hiltViewModel<DetailsViewModel>()
             DetailsScreen(
-                courseId = courseId,
                 viewModel = detailsViewModel,
             )
         }

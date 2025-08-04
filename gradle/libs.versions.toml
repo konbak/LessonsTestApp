@@ -1,5 +1,5 @@
 [versions]
-agp = "8.10.1"
+agp = "8.11.0"
 kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -10,12 +10,12 @@ activityCompose = "1.10.1"
 composeBom = "2025.06.01"
 appcompat = "1.7.1"
 material = "1.12.0"
-hiltAndroid = "2.56.1"
+hiltAndroid = "2.56.2"
 hiltCompiler = "1.2.0"
 kspVersion = "2.2.0-RC3-2.0.2"
-mockk = "1.13.5"
-coroutines = "1.8.1"
-coilCompose = "2.4.0"
+mockk = "1.14.4"
+coroutines = "1.10.2"
+coilCompose = "2.7.0"
 
 
 [libraries]
