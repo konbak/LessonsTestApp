@@ -12,6 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import app.example.designsystem.theme.LessonsTestAppTheme
+import app.example.home.navigation.homeScreenRoute
+import app.example.lessonstestapp.nav.NkNavHost
+import app.example.lessonstestapp.nav.rememberAppState
 import app.example.lessonstestapp.navigation.LessonsTestAppNavigation
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,7 +40,9 @@ fun LessonsTestApp() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            LessonsTestAppNavigation()
+            //LessonsTestAppNavigation()
+            val appState = rememberAppState(startDestination = homeScreenRoute)
+            NkNavHost(appState = appState)
         }
     }
 }
